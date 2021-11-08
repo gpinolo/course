@@ -1,0 +1,24 @@
+entity Student {
+	firstName String
+    lastName String
+    email String
+}
+
+entity Teacher {
+	firstName String
+    lastName String
+    subject String
+}
+
+entity Exam{
+    title String
+    vote Integer
+}
+
+relationship ManyToMany {
+	Student to Teacher
+}
+
+relationship OneToMany {
+	Student to Exam
+}

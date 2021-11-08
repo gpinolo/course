@@ -1,0 +1,349 @@
+2021-11-02 10:16:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                          
+
+CREATE TABLE STUDENT (
+    ID INTEGER NOT NULL, 
+    EMAIL VARCHAR(25), 
+    FIRST_NAME VARCHAR(25), 
+    LAST_NAME VARCHAR(25), 
+    PRIMARY KEY (ID))
+)[*]"; SQL statement:
+--Data Definition Language
+
+CREATE TABLE student (
+    id integer not null, 
+    email varchar(25), 
+    first_name varchar(25), 
+    last_name varchar(25), 
+    primary key (id))
+) [42000-200]
+2021-11-02 10:59:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', [*]'rossi)"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi) [42000-200]
+2021-11-02 11:00:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FIRST_NAME VARCHAR(25)": "'marioooooooooooooooooooooooooooooooooooooooooooooooooooo' (56)"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (2, 'm.rossi@gmail.com', 'marioooooooooooooooooooooooooooooooooooooooooooooooooooo', 'rossi') [22001-200]
+2021-11-02 11:03:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                             
+
+INSERT INTO STUDENT (ID, EMAIL, FIRST_NAME, LAST_NAME)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT[*] * FROM STUDENT"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT * FROM student [42000-200]
+2021-11-02 11:04:43 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                             
+
+INSERT INTO STUDENT (ID, EMAIL, FIRST_NAME, LAST_NAME)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT[*] FIRST_NAME FROM STUDENT"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT first_name FROM student [42000-200]
+2021-11-02 11:05:34 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                             
+
+INSERT INTO STUDENT (ID, EMAIL, FIRST_NAME, LAST_NAME)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT[*] * FROM STUDENT WHERE FIRST_NAME='mario'"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT * FROM student WHERE first_name='mario' [42000-200]
+2021-11-02 11:11:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                             
+
+INSERT INTO STUDENT (ID, EMAIL, FIRST_NAME, LAST_NAME)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT[*] * FROM STUDENT
+
+UPDATE STUDENT SET EMAIL='m.rossi@libero.it' WHERE ID=1
+
+DELETE FROM STUDENT            1"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT * FROM student
+
+UPDATE student SET email='m.rossi@libero.it' WHERE id=1
+
+DELETE FROM student --WHERE id=1 [42000-200]
+2021-11-02 11:23:19 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                             
+
+INSERT INTO STUDENT (ID, EMAIL, FIRST_NAME, LAST_NAME)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT[*] * FROM STUDENT
+
+UPDATE STUDENT SET EMAIL='m.rossi@libero.it' WHERE ID=1
+
+DELETE FROM STUDENT             
+
+
+CREATE TABLE EXAM (
+    ID INTEGER NOT NULL,
+    TITLE VARCHAR(255),
+    VOTE INTEGER NOT NULL,
+    STUDENT_ID INTEGER NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (STUDENT_ID) REFERENCES STUDENT(ID)
+)"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT * FROM student
+
+UPDATE student SET email='m.rossi@libero.it' WHERE id=1
+
+DELETE FROM student --WHERE id=1
+
+
+CREATE TABLE exam (
+    id INTEGER NOT NULL,
+    title VARCHAR(255),
+    vote INTEGER NOT NULL,
+    student_id INTEGER NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (student_id) REFERENCES student(id)
+) [42000-200]
+2021-11-02 11:27:03 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "TITILE" not found; SQL statement:
+INSERT INTO exam(id, titile, vote, student_id)
+VALUES (1, 'Analisi matematica', 30, 3) [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.getColumn(Table.java:703)
+	at org.h2.command.Parser.parseColumn(Parser.java:1450)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1435)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1804)
+	at org.h2.command.Parser.parseInsert(Parser.java:1749)
+	at org.h2.command.Parser.parsePrepared(Parser.java:954)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Thread.java:745)
+2021-11-02 11:36:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "EXAM" not found; SQL statement:
+select first_name, last_name, title, vote from exam, student where exam.student_id(+)=student.id [90079-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.engine.Database.getSchema(Database.java:1936)
+	at org.h2.command.Parser.readTermObjectDot(Parser.java:4189)
+	at org.h2.command.Parser.readTerm(Parser.java:4307)
+	at org.h2.command.Parser.readFactor(Parser.java:3343)
+	at org.h2.command.Parser.readSum(Parser.java:3330)
+	at org.h2.command.Parser.readConcat(Parser.java:3305)
+	at org.h2.command.Parser.readCondition(Parser.java:3108)
+	at org.h2.command.Parser.readExpressionWithGlobalConditions(Parser.java:3046)
+	at org.h2.command.Parser.parseSelect(Parser.java:2962)
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649)
+	at org.h2.command.Parser.parseQuery(Parser.java:2620)
+	at org.h2.command.Parser.parsePrepared(Parser.java:868)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Thread.java:745)
+2021-11-02 11:37:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT FIRST_NAME, LAST_NAME, TITLE, VOTE FROM EXAM, STUDENT WHERE EXAM.STUDENT_ID=(+)[*]STUDENT.ID"; SQL statement:
+select first_name, last_name, title, vote from exam, student where exam.student_id=(+)student.id [42000-200]
+2021-11-02 11:38:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                             
+
+INSERT INTO STUDENT (ID, EMAIL, FIRST_NAME, LAST_NAME)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT[*] * FROM STUDENT
+
+SELECT * FROM EXAM
+
+
+UPDATE STUDENT SET EMAIL='m.rossi@libero.it' WHERE ID=1
+
+DELETE FROM STUDENT             
+
+
+CREATE TABLE EXAM (
+    ID INTEGER NOT NULL,
+    TITLE VARCHAR(255),
+    VOTE INTEGER NOT NULL,
+    STUDENT_ID INTEGER NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (STUDENT_ID) REFERENCES STUDENT(ID)
+)"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT * FROM student
+
+SELECT * FROM EXAM
+
+
+UPDATE student SET email='m.rossi@libero.it' WHERE id=1
+
+DELETE FROM student --WHERE id=1
+
+
+CREATE TABLE exam (
+    id INTEGER NOT NULL,
+    title VARCHAR(255),
+    vote INTEGER NOT NULL,
+    student_id INTEGER NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (student_id) REFERENCES student(id)
+) [42000-200]
+2021-11-02 11:38:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EXAM(ID, TITLE, VOTE, STUDENT_ID)
+VALUES (1, 'Analisi matematica', 30, 1)
+
+SELECT[*] FIRST_NAME, LAST_NAME, TITLE, VOTE FROM EXAM, STUDENT WHERE EXAM.STUDENT_ID=STUDENT.ID"; SQL statement:
+INSERT INTO exam(id, title, vote, student_id)
+VALUES (1, 'Analisi matematica', 30, 1)
+
+select first_name, last_name, title, vote from exam, student where exam.student_id=student.id [42000-200]
+2021-11-02 11:41:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ambiguous column name "ID"; SQL statement:
+select first_name, last_name, title, vote from exam, student where student_id=id [90059-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:129)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:107)
+	at org.h2.expression.condition.Comparison.mapColumns(Comparison.java:506)
+	at org.h2.command.dml.Select.mapColumns(Select.java:1603)
+	at org.h2.command.dml.Select.init(Select.java:1125)
+	at org.h2.command.Parser.parseQuery(Parser.java:2627)
+	at org.h2.command.Parser.parsePrepared(Parser.java:868)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Thread.java:745)
+2021-11-02 11:54:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                             
+
+INSERT INTO STUDENT (ID, EMAIL, FIRST_NAME, LAST_NAME)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT[*] DISTINCT FIRST_NAME FROM STUDENT
+
+SELECT * FROM EXAM
+
+
+UPDATE STUDENT SET EMAIL='m.rossi@libero.it' WHERE ID=1
+
+DELETE FROM STUDENT             
+
+
+CREATE TABLE EXAM (
+    ID INTEGER NOT NULL,
+    TITLE VARCHAR(255),
+    VOTE INTEGER NOT NULL,
+    STUDENT_ID INTEGER NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (STUDENT_ID) REFERENCES STUDENT(ID)
+)"; SQL statement:
+-- Data Manipulation Language
+
+INSERT INTO student (id, email, first_name, last_name)
+VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi')
+
+SELECT DISTINCT first_name FROM student
+
+SELECT * FROM EXAM
+
+
+UPDATE student SET email='m.rossi@libero.it' WHERE id=1
+
+DELETE FROM student --WHERE id=1
+
+
+CREATE TABLE exam (
+    id INTEGER NOT NULL,
+    title VARCHAR(255),
+    vote INTEGER NOT NULL,
+    student_id INTEGER NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (student_id) REFERENCES student(id)
+) [42000-200]
+2021-11-02 11:54:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EXAM(ID, TITLE, VOTE, STUDENT_ID)
+VALUES (1, 'Analisi matematica', 30, 1)
+
+SELECT[*] FIRST_NAME, LAST_NAME, TITLE, VOTE FROM EXAM, STUDENT WHERE EXAM.STUDENT_ID=STUDENT.ID
+
+
+SELECT FIRST_NAME, LAST_NAME, TITLE, VOTE FROM EXAM RIGHT JOIN STUDENT ON EXAM.STUDENT_ID=STUDENT.ID WHERE FIRST_NAME='mario'"; SQL statement:
+INSERT INTO exam(id, title, vote, student_id)
+VALUES (1, 'Analisi matematica', 30, 1)
+
+select first_name, last_name, title, vote from exam, student where exam.student_id=student.id
+
+
+select first_name, last_name, title, vote from exam RIGHT JOIN student on exam.student_id=student.id where first_name='mario' [42000-200]
