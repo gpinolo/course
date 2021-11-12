@@ -136,15 +136,16 @@ CREATE TABLE exam (
 );
 ~~~
 
+![One to Many relationship](OneToMany.png)
+
 La lettura di dati da più tabelle avviene con un'operazione definita join
 
 ~~~sql
 select first_name, last_name, title, vote from exam, student where exam.student_id = student.id
 ~~~  
 
+# Tutorials online
 
-[SQL Tutorial](https://www.w3schools.com/sql/)
-
-[SQL Tutorial](https://www.javatpoint.com/dbms-tutorial)
-
+[SQL Tutorial 1](https://www.w3schools.com/sql/),
+[SQL Tutorial 2](https://www.javatpoint.com/dbms-tutorial),
 [H2 Tutorial](https://h2database.com/html/main.html)
