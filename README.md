@@ -1,49 +1,31 @@
-# [Data Base Management System](dbms/README.md)
+# Database e java
 
-Un _Data Base Management System_ (DBMS) è un sistema software per la creazione, la manipolazione e l'interrogazione di dati.
+Le applicazioni hanno spesso bisogno di recuperare e conservare dati per portare a termine le operazioni a cui sono preposte. 
+Nelle sezioni seguenti vediamo cos'è un _database_ e come interagire con esso tramite le _APIs_ messe a disposizione da 
+_JDBC_, _JPA_ e _Spring Data JPA_: ogni argomento è approfondito con spiegazioni dettagliate e corredato di esempi pratici.
+
+>Una conoscenza base del linguaggio java è prerequisito per il lettore.
+
+- [Database](dbms/README.md)
+
+Un _Database_ è un software che permette di archiviare dati: nei _Database_ relazionali di cui ci occuperemo, i dati 
+sono organizzati in schemi tabellari per semplificare la scrittura, la lettura e la creazione di relazioni.
+Per la creazione degli schemi in cui archiviare i dati e per la loro manipolazione viene utilizzato il linguaggio SQL.
 
 
-# [Java Data Base Connection](jdbc/README.md)
-- Obtain data base connection
-- Statement execution
-- Processing ResultSet
+- [Java Database Connectivity](jdbc/README.md)
 
-# [JPA](jpa/README.md)
+Nella SDK di _java_ sono presenti le _APIs_ che consentono l'interazione con un _database_: in questo spazio vediamo 
+come eseguire e recuperare il risultato di una query.
 
-- Entity
-	- @Entity, @Table, @Column annotations
-- EntityManager
-- Relationship
-	- One to One
-	- One to Many
-	- Many to Many
-- Cascade and Fetch Strategy
-- Validation
-- JPQL/Named Query/Criteria API/Native Query
-- Transaction
-- JPA providers (Hibernate)
+- [JPA](jpa/README.md)
 
-https://www.baeldung.com/tag/jpa/
+_JPA_ è una specifica che definisce come relazionare oggetti java ai records di un _database_: questo processo, definito
+mapping, fa in modo che la lettura o il salvataggio di un oggetto _java_ genera la lettura o l'inserimento di dati 
+sul _database. 
 
-# [Spring data JPA](spring-data-jpa/README.md)
+# [Spring Data JPA](spring-data-jpa/README.md)
 
 - Setup
 - Repository and method naming pattern
-
-
-- H2 
-    - Setup
-    - Schema creation with DDL and CRUD operation with DML exercise
-
-<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-<dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <version>1.4.200</version>
-    <scope>test</scope>
-</dependency>
-
-java -jar h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
-
-
 
