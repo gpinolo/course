@@ -8,24 +8,21 @@ _JDBC_, _JPA_ e _Spring Data JPA_: ogni argomento è approfondito con spiegazion
 
 - [Database](dbms/README.md)
 
-Un _Database_ è un software che permette di archiviare dati: nei _Database_ relazionali di cui ci occuperemo, i dati 
-sono organizzati in schemi tabellari per semplificare la scrittura, la lettura e la creazione di relazioni.
-Per la creazione degli schemi in cui archiviare i dati e per la loro manipolazione viene utilizzato il linguaggio SQL.
+Un _Database_ è un software per l'archiviazione di dati: vediamo come creare una struttura e come manipolare i dati
+utilizzando il linguaggio _SQL_. 
 
 
 - [Java Database Connectivity](jdbc/README.md)
 
-Nella SDK di _java_ sono presenti le _APIs_ che consentono l'interazione con un _database_: in questo spazio vediamo 
-come eseguire e recuperare il risultato di una query.
+Esploriamo le _APIs_ che _java_ mette a disposizione per interagire con un _database_ e come utilizzarle per eseguire 
+e recuperare il risultato di una query.
 
 - [JPA](jpa/README.md)
 
-_JPA_ è una specifica che definisce come relazionare oggetti java ai records di un _database_: questo processo, definito
-mapping, fa in modo che la lettura o il salvataggio di un oggetto _java_ genera la lettura o l'inserimento di dati 
-sul _database. 
+Analizziamo _JPA_ e come esso ci consente di relazionare oggetti di un'applicazione _java_ con struttura dati di un 
+_database_ e persistere le operazioni eseguite su tali oggetti sul _database_. 
 
-# [Spring Data JPA](spring-data-jpa/README.md)
+- [Spring Data JPA](spring-data-jpa/README.md)
 
-- Setup
-- Repository and method naming pattern
-
+Vediamo come _Spring Data JPA_ semplifica la scrittura del codice per l'accesso ai dati in un'applicazione _java_ 
+che utilizza JPA.

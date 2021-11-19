@@ -12,3 +12,4 @@
 - JPA providers (Hibernate)
 
 https://www.baeldung.com/tag/jpa/
+https://www.javaguides.net/p/jpa-tutorial-java-persistence-api.html
