@@ -22,7 +22,7 @@ come eseguire e recuperare il risultato di una query.
 
 _JPA_ è una specifica che definisce come relazionare oggetti java ai records di un _database_: questo processo, definito
 mapping, fa in modo che la lettura o il salvataggio di un oggetto _java_ genera la lettura o l'inserimento di dati 
-sul _database. 
+sul _database_. 
 
 # [Spring Data JPA](spring-data-jpa/README.md)
 
