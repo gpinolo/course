@@ -112,13 +112,13 @@ UPDATE student set email='m.rossi@libero.it' where id=1
 ### Delete
 La cancellazione di dati avviene con un'operazione di DELETE
 
-~~~
+~~~sql
 DELETE FROM table_name WHERE condition;
 ~~~
 
 Esempio
 
-~~~
+~~~sql
 DELETE FORM student WHERE id=1
 ~~~
     
@@ -146,21 +146,6 @@ select first_name, last_name, title, vote from exam, student where exam.student_
 
 # Tutorials online
 
+[H2 Tutorial](https://h2database.com/html/main.html)
 [SQL Tutorial 1](https://www.w3schools.com/sql/),
 [SQL Tutorial 2](https://www.javatpoint.com/dbms-tutorial),
-[H2 Tutorial](https://h2database.com/html/main.html)
-
-
-- H2
-    - Setup
-    - Schema creation with DDL and CRUD operation with DML exercise
-
-<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-<dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <version>1.4.200</version>
-    <scope>test</scope>
-</dependency>
-
-java -jar h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
