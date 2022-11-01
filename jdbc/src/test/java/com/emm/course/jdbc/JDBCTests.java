@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class JDBCTests {
+class JDBCTests {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JDBCTests.class);
 
@@ -34,7 +34,7 @@ public class JDBCTests {
         StudentDAO studentDAO = new StudentDAO(
             "jdbc:h2:file:./jdbc", "jdbc", "");
         LOGGER.info("Invochiamo l'API create per inserirlo sul database");
-        studentDAO.create(student);
+        studentDAO.insert(student);
         LOGGER.info("Invochiamo l'API findAll per leggere tutti gli studenti presenti sul database");
         List<Student> allStudentInDB = studentDAO.findAll();
         LOGGER.info("Verifichiamo che lo student precedentemente inserito è presente sul database");

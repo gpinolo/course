@@ -1,6 +1,6 @@
 package com.emm.course.jdbc.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Exam {
 
@@ -13,10 +13,6 @@ public class Exam {
     private int vote;
 
     private Student student;
-
-    public Exam() {
-
-    }
 
     public int getId() {
         return id;

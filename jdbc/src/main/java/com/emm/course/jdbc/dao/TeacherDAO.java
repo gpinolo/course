@@ -1,37 +1,38 @@
 package com.emm.course.jdbc.dao;
 
 import com.emm.course.jdbc.entity.Student;
+import com.emm.course.jdbc.entity.Teacher;
 import com.emm.course.jdbc.exception.JDBCException;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDAO {
+public class TeacherDAO {
 
     private final String dbUrl;
     private final String user;
     private final String pwd;
 
-    public StudentDAO(String dbUrl, String user, String pwd) {
+    public TeacherDAO(String dbUrl, String user, String pwd) {
         super();
         this.dbUrl = dbUrl;
         this.user = user;
         this.pwd = pwd;
     }
 
-    public int insert(Student student){
-        String sqlInsert = "INSERT INTO student (id, first_name, last_name, email) VALUES (?, ?, ?, ?)";
+    public int insert(Teacher teacher){
+        String sqlInsert = "INSERT INTO teacher (id, first_name, last_name, subject) VALUES (?, ?, ?, ?)";
         try (Connection conn = DriverManager.getConnection (dbUrl, user,pwd);
             PreparedStatement preparedStatement = conn.prepareStatement(sqlInsert)){
-            preparedStatement.setInt(1, student.getId());
-            preparedStatement.setString(2, student.getFirstName());
-            preparedStatement.setString(3, student.getLastName());
-            preparedStatement.setString(4, student.getEmail());
+            preparedStatement.setInt(1, teacher.getId());
+            preparedStatement.setString(2, teacher.getFirstName());
+            preparedStatement.setString(3, teacher.getLastName());
+            preparedStatement.setString(4, teacher.getSubject());
             return preparedStatement.executeUpdate();
         }
         catch (SQLException sqlException) {
-            throw new JDBCException("Unable to execute createStudent api", sqlException);
+            throw new JDBCException("Unable to execute create api", sqlException);
         }
     }
 
@@ -57,7 +58,7 @@ public class StudentDAO {
     public int deleteAll(){
         try (Connection conn = DriverManager.getConnection (dbUrl, user,pwd);
             Statement statement = conn.createStatement()){
-            return statement.executeUpdate("delete from student");
+            return statement.executeUpdate("DELETE teacher");
         } catch (SQLException sqlException) {
             throw new JDBCException("Unable to execute delete api", sqlException);
         }
