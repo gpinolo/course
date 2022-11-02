@@ -23,8 +23,8 @@ create table exam (
 );
 create table student_teacher (
     student_id integer not null,
-    teachers_id integer not null,
-    primary key (student_id, teachers_id),
+    teacher_id integer not null,
+    primary key (student_id, teacher_id),
     foreign key (student_id) references student(id),
-    foreign key (teachers_id) references teacher(id)
+    foreign key (teacher_id) references teacher(id)
 );
