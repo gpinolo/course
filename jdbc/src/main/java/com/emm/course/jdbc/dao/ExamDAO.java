@@ -4,6 +4,8 @@ import com.emm.course.jdbc.entity.Exam;
 import com.emm.course.jdbc.exception.JDBCException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExamDAO {
 
@@ -26,7 +28,7 @@ public class ExamDAO {
             preparedStatement.setString(2, exam.getTitle());
             preparedStatement.setDate(3, exam.getDate());
             preparedStatement.setInt(4, exam.getVote());
-            preparedStatement.setInt(5, exam.getStudent().getId());
+            preparedStatement.setInt(5, exam.getStudentId());
             return preparedStatement.executeUpdate();
         }
         catch (SQLException sqlException) {
@@ -34,6 +36,25 @@ public class ExamDAO {
         }
     }
 
+    public List<Exam> findExamByStudentId(int studentId) {
+        try (Connection conn = DriverManager.getConnection (dbUrl, user,pwd);
+             PreparedStatement preparedStatement = conn.prepareStatement("select * from exam where student_id = ?")){
+            preparedStatement.setInt(1, studentId);
+            List<Exam> examList = new ArrayList<>();
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                Exam exam = new Exam(resultSet.getInt("id"),
+                    resultSet.getString("title"),
+                    resultSet.getDate("date"),
+                    resultSet.getInt("vote"),
+                    studentId);
+                examList.add(exam);
+            }
+            return examList;
+        } catch (SQLException sqlException) {
+            throw new JDBCException("Unable to execute findAll api", sqlException);
+        }
+    }
 
     public int deleteAll(){
         try (Connection conn = DriverManager.getConnection (dbUrl, user,pwd);
@@ -43,5 +64,4 @@ public class ExamDAO {
             throw new JDBCException("Unable to deleteAll exam", sqlException);
         }
     }
-
 }

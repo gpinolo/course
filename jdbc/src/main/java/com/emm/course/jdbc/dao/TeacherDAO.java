@@ -1,6 +1,5 @@
 package com.emm.course.jdbc.dao;
 
-import com.emm.course.jdbc.entity.Student;
 import com.emm.course.jdbc.entity.Teacher;
 import com.emm.course.jdbc.exception.JDBCException;
 
@@ -36,20 +35,19 @@ public class TeacherDAO {
         }
     }
 
-    public List<Student> findAll() {
+    public List<Teacher> findAll() {
         try (Connection conn = DriverManager.getConnection (dbUrl, user,pwd);
-            Statement statement = conn.createStatement()){
-            List<Student> students = new ArrayList<>();
-            ResultSet resultSet = statement.executeQuery("select * from student");
+             Statement statement = conn.createStatement()){
+            List<Teacher> teacherList = new ArrayList<>();
+            ResultSet resultSet = statement.executeQuery("select * from teacher");
             while (resultSet.next()){
-                Student student = new Student();
-                student.setId(resultSet.getInt("id"));
-                student.setFirstName(resultSet.getString("first_name"));
-                student.setLastName(resultSet.getString("last_name"));
-                student.setEmail(resultSet.getString("email"));
-                students.add(student);
+                Teacher teacher = new Teacher(resultSet.getInt("id"),
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    resultSet.getString("subject"));
+                teacherList.add(teacher);
             }
-            return students;
+            return teacherList;
         } catch (SQLException sqlException) {
             throw new JDBCException("Unable to execute findAll api", sqlException);
         }

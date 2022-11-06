@@ -12,7 +12,15 @@ public class Exam {
 
     private int vote;
 
-    private Student student;
+    private int studentId;
+
+    public Exam(int id, String title, Date date, int vote, int studentId) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.vote = vote;
+        this.studentId = studentId;
+    }
 
     public int getId() {
         return id;
@@ -46,16 +54,16 @@ public class Exam {
         this.vote = vote;
     }
 
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudent(int studentId) {
+        this.studentId = studentId;
+    }
+
     @Override
     public String toString() {
-        return "Student [id=" + id + ", firstName=" + title + ", date=" + date + ", vote=" + vote + "]";
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
+        return "Exam [id=" + id + ", title=" + title + ", date=" + date + ", vote=" + vote+ ", studentId=" + studentId + "]";
     }
 }
