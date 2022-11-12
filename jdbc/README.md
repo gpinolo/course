@@ -1,7 +1,7 @@
 # Java Database Connectivity (JDBC)
 
 _JDBC_ è costituito da una serie di _APIs_ presenti nel package _java.sql_ che permette ad un programma java di connettersi ad un _database_ 
-per inerrogare e modificare i dati in esso presenti.
+per interrogare e modificare i dati in esso presenti.
 
 # Obtain database connection
 
