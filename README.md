@@ -1,14 +1,15 @@
 # Database e java
 
-Le applicazioni hanno spesso bisogno di recuperare e conservare dati per portare a termine le operazioni a cui sono preposte. 
-Nelle sezioni seguenti vediamo cos'è un _database_ e come interagire con esso tramite le _APIs_ messe a disposizione da 
-_JDBC_, _JPA_ e _Spring Data JPA_: ogni argomento è approfondito con spiegazioni dettagliate e corredato di esempi pratici.
+Le applicazioni hanno spesso bisogno di recuperare e conservare dati per portare a termine le operazioni a cui sono preposte:
+l'insieme di queste informazioni viene archiviato in un sistema informatico denominato _database_.
+Nelle sezioni seguenti vediamo come interagire con esso tramite il linguaggio _SQL_ e le _APIs_ (Application Programming Interface) 
+messe a disposizione da _JDBC_, _JPA_ e _Spring Data JPA_: ogni argomento è approfondito con spiegazioni dettagliate e corredato di esempi pratici.
 
 >Una conoscenza base del linguaggio java è prerequisito per il lettore.
 
 - [Database](dbms/README.md)
 
-Un _Database_ è un software per l'archiviazione di dati: vediamo come creare una struttura e come manipolare i dati
+Un _database_ è un software per l'archiviazione di dati: vediamo come creare una struttura e come manipolare i dati
 utilizzando il linguaggio _SQL_. 
 
 
