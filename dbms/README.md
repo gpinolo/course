@@ -1,11 +1,11 @@
 # Data Base
-Un database è un software per l'archiviazione di dati.
+Un _database_ è un software per l'archiviazione di dati.
 I dati vengono memorizzati in tabelle attraverso creazioni, aggiornamenti e cancellazioni e vengono recuperati attraverso operazioni di lettura.
 L'insieme di queste operazioni viene definito con l'acronimo CRUD (Create, Read, Update, Delete).
 Queste operazioni vengono effettuate eseguendo istruzioni SQL (Structured Query Language)
 
 ## Data Definition Language
-Una tabella viene creata attraverso l'esecuzione di comandi SQL definiti DDL.
+Una tabella viene creata attraverso l'esecuzione di comandi _SQL_ definiti _DDL_ (Data Definition Language).
 
 ### Create 
 Per creare una tabella è necessario definirne il nome e i campi con tipo e vincoli.
@@ -62,10 +62,10 @@ ADD birth_date date
 
  
 ## Data Manipulation Language
-I dati vengono manipolati attraverso l'esecuzione di comandi SQL definiti DML.
+I dati vengono manipolati attraverso l'esecuzione di comandi _SQL_ definiti _DML_ (Data Manipulation Language).
 
 ### Create
-La creazione dei dati avviene con un'operazione di INSERT
+La creazione dei dati avviene con un'operazione di _INSERT_
 
 ~~~sql
 INSERT INTO table_name (column1, column2, ...)
@@ -80,7 +80,7 @@ VALUES (1, 'm.rossi@gmail.com', 'mario', 'rossi');
 ~~~
 
 ### Read
-La lettura dei dati avviene con un'operazione di SELECT
+La lettura dei dati avviene con un'operazione di _SELECT_
 
 ~~~sql
 SELECT column1, column2, ...
@@ -95,7 +95,7 @@ SELECT * FROM student where last_name='rossi'
 ~~~
 
 ### Update
-L'aggiornamento dei dati avviene con un'operazione di UPDATE
+L'aggiornamento dei dati avviene con un'operazione di _UPDATE_
 
 ~~~sql
 UPDATE table_name
@@ -110,7 +110,7 @@ UPDATE student set email='m.rossi@libero.it' where id=1
 ~~~
 
 ### Delete
-La cancellazione di dati avviene con un'operazione di DELETE
+La cancellazione di dati avviene con un'operazione di _DELETE_
 
 ~~~sql
 DELETE FROM table_name WHERE condition;

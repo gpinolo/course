@@ -2,7 +2,7 @@
     <persistence-unit name="examplePU">
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:C:/Users/gdecesare/dev/EMM/course/jpa/jpa1;DB_CLOSE_DELAY=-1" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:./jpa/jpa1;DB_CLOSE_DELAY=-1" />
             <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/C:/Users/gdecesare/dev/EMM/course/jpa/test;DB_CLOSE_DELAY=-1" />-->
             <property name="javax.persistence.jdbc.user" value="test" />
             <property name="javax.persistence.jdbc.password" value="" />
